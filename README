@@ -1,0 +1,34 @@
+Quick3wayBM is a working quicksort as outlined in the implementation, except the median is chosen
+randomly instead of based on spacing, as that's how I did it before the Note: Finding the Median was added.
+
+Visualization is not implemented.
+Text output is currently disabled because I used Quick3wayBM in the implementation of Rhyming.java and thus don't
+want the sort printing to stdout.
+
+Output for Quick3wayBM can be temporarily enabled by uncommenting lines 30, and 75-80 in Quick3wayBM.java. Note that this
+will make Rhyming fail test cases because extra output will be printed to the screen.
+
+Rhyming.java is fully implemented and works with the provided test cases.
+
+I'm not sure exactly how Rhyming was "supposed" to be implemented, but I built a tree such that every node rhymes with
+its parent. The example cases provided in the assignment would build a tree like this:
+
+		     "(empty string)"
+	      /                     \
+		 y                       ughed
+       /           \           /        \
+	dly               ky     coughed   laughed
+	/   \           /     \
+friendly rapidly   murky   lucky
+
+Thus everything that rhymes with 'y' is a leaf at the bottom of the sub-tree with root node 'y', and likewise
+for any other rhyme which is found.
+
+Once the tree is constructed it was simply a matter of parsing out the data from the tree and presenting it
+as required.
+
+A new Comparable type was made (RhymeStem) so that I could use Quick3wayBM on the rhymes 
+themselves (y, dly, etc) that would take into account the length of the rhyme first and 
+then its lexical value.
+
+RhymeNode.java describes the node objects used in the tree structure previously described.
